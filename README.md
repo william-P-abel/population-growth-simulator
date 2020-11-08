@@ -14,3 +14,5 @@ also determines half life if the population is halved in the given time frame.
 
 5.0: Graphical representation of data allows for quick and understandability of data. Useful for practical applications. 
 
+
+current version: Alpha not yet functional.
