@@ -2,6 +2,7 @@
 A simple program to show population decline over time at given birth rates. Uses simulation logic to provide a more scalable complexity than calculus based alternatives.
 
 use cases:
+
 1.0: User inputs population distribution, average age of mortality, fertility rate and simulation length and system returns a table showing the population size over that time,
 also determines half life if the population is halved in the given time frame.
 
