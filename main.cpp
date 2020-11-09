@@ -1,5 +1,6 @@
 #include <iostream>
 #include <stdlib.h>
+#include <definitions.h>
 
 int main() {
 	int totalPop = 0;
@@ -7,6 +8,8 @@ int main() {
 	double averageFertility = 0;
 	char ageDistribution = 'Z';
 	double averageMortalityRate = 0;
+	double maleMortalityConstant = 0;
+	double femaleMortalityConstant = 0;
 
 	//get user input
 	std::cout << "thank you for using population change simulator please input your settings" << endl;
@@ -20,6 +23,10 @@ int main() {
 	std::cin >> ageDistribution;
 	std::cout << "input average age of mortality, must be over 45" << endl;
 	std::cin >> averageMortalityRate;
+	std::cout << "input gender mortality discrepency for males (negative values indicate earlier death):" << endl;
+	std::cin >> maleMortalityConstant;
+	std::cout << "input gender mortality discrepency for females (negative values indicate earlier death):" << endl;
+	std::cin >> femaleMortalityConstant;
 	
 	//input error handling
 	if (totalPop < 1) {
@@ -50,7 +57,7 @@ int main() {
 			else if (fertilityBracket <= 60) { //age 0-12
 				newAge = rand() % 12 + 1;
 			}
-			else {  // 45-average mortality rate
+			else {  // ages 45-average mortality rate
 				while (newAge <= 45) {
 					newAge = rand() % averageMortalityRate + 1;
 				}
@@ -64,7 +71,7 @@ int main() {
 			else if (fertilityBracket <= 75) { //age 0-12
 				newAge = rand() % 12 + 1;
 			}
-			else {  // 45-average mortality rate
+			else {  // ages 45-average mortality rate
 				while (newAge <= 45) {
 					newAge = rand() % averageMortalityRate + 1;
 				}
@@ -78,14 +85,14 @@ int main() {
 			else if (fertilityBracket <= 45) { //age 0-12
 				newAge = rand() % 12 + 1;
 			}
-			else {  // 45-average mortality rate
+			else {  // ages 45-average mortality rate
 				while (newAge <= 45)
 					newAge = rand() % averageMortalityRate + 1;
 			}
 		}
 
 		// resolve sex and make person object
-		makePerson(newAge);
+		makePerson(i, newAge, averageFertility);
 
 	}
 

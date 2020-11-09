@@ -1,5 +1,6 @@
 #include <iostream>
 #include <stdlib.h>
+#include <prototypes.h>
 
 class human() {
 	int aliveState;
@@ -33,39 +34,22 @@ class human() {
 }
 
 class male:public human() {
-	double maleLifeSpan;
 
 	public:
-		double getMaleLifeSpan(){
-			return maleLifeSpan;
-		}
 
-		double setMaleLifeSpan(double inputLifeSpan) {
-			maleLifeSpan = inputLifeSpan;
-		}
-
-		male(double inputAge, long long int inputId, double inputLifeSpan) {
+		male(long long int inputId, double inputAge) {
+			aliveState = 1;
 			age = inputAge;
 			id = inputId;
-			maleLifeSpan = inputLifespan;
 		}
 
 		~male();
 }
 
 class female:public human() {
-	double femaleLifeSpan;
 	double fertilityFactor;
 
 	public:
-		double getFemaleLifeSpan() {
-			return femaleLifeSpan;
-		}
-
-		double setFemaleLifeSpan(double inputLifeSpan) {
-			femaleLifeSpan = inputLifeSpan;
-		}
-
 		double getFertilityFactor() {
 			return fertilityFactor;
 		}
@@ -74,23 +58,23 @@ class female:public human() {
 			fertilityFactor = inputFertilityFactor;
 		}
 
-		female(double inputAge, long long int inputId, double inputLifeSpan, double inputFertilityFactor) {
+		female(long long int inputId, double inputAge, double inputFertilityFactor) {
+			aliveState = 1;
 			age = inputAge;
 			id = inputId;
-			femaleLifeSpan = inputLifespan;
 			fertilityFactor = inputFertilityFactor;
 		}
 
 		~female();
 };
 
-void makePerson(double newAge) {
+void makePerson(long long int newId, double newAge, double newFertilityRate) {
 	int sexDecider = rand() % 10;
 	if (sexDecider < 5) {
-		return new female(newAge, );
+		return new female(newId, newAge, newFertilityRate);
 	}
 	else {
-		return new male(newAge,)
+		return new male(newId, newAge);
 	}
 }
 
