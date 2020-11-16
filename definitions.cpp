@@ -78,6 +78,6 @@ void makePerson(long long int newId, double newAge, double newFertilityRate) {
 	}
 }
 
-void passYear(int popArray) {
+void passYear(int) {
 
 }

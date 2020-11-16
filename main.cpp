@@ -28,7 +28,8 @@ int main() {
 	std::cout << "input gender mortality discrepency for females (negative values indicate earlier death):" << std::endl;
 	std::cin >> femaleMortalityConstant;
 
-	vector<male> malePop(0, male());
+	//two vectors are used to contain the population becuse male and female objects are diffrent sizes
+	vector<male> malePop(0, male());    
 	vector<female> femalePop(0, female());
 	
 	//input error handling
@@ -99,8 +100,16 @@ int main() {
 
 	}
 
-	for (int i = 0; i < yearsToPass; i++) {
-		passYear();
+	for (int i = 0; i < yearsToPass; i++) { //run simulated years
+		passYear();  //in future builds will take inputs that reflect trend curves
+	}
+
+	for () { //deallocate memory for simulated males
+
+	}
+
+	for () { //deallocate memory for simulated females
+
 	}
 	return 0;
 }
