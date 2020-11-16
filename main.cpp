@@ -12,33 +12,36 @@ int main() {
 	double femaleMortalityConstant = 0;
 
 	//get user input
-	std::cout << "thank you for using population change simulator please input your settings" << endl;
-	std::cout << "input total popultion" << endl;
+	std::cout << "thank you for using population change simulator please input your settings" << std::endl;
+	std::cout << "input total popultion" << std::endl;
 	std::cin >> totalPop;
-	std::cout << "input average feritility rate" << endl;
+	std::cout << "input average feritility rate" << std::endl;
 	std::cin >> averageFertility;
-	std::cout << "input number of years to run simulation" << endl;
+	std::cout << "input number of years to run simulation" << std::endl;
 	std::cin >> yearsToPass;
-	std::cout << "input initial age distribution bracket: E: equal distribution P: pyramid distribution U: upside down pyramid distribution" << endl;
+	std::cout << "input initial age distribution bracket: E: equal distribution P: pyramid distribution U: upside down pyramid distribution" << std::endl;
 	std::cin >> ageDistribution;
-	std::cout << "input average age of mortality, must be over 45" << endl;
+	std::cout << "input average age of mortality, must be over 45" << std::endl;
 	std::cin >> averageMortalityRate;
-	std::cout << "input gender mortality discrepency for males (negative values indicate earlier death):" << endl;
+	std::cout << "input gender mortality discrepency for males (negative values indicate earlier death):" << std::endl;
 	std::cin >> maleMortalityConstant;
-	std::cout << "input gender mortality discrepency for females (negative values indicate earlier death):" << endl;
+	std::cout << "input gender mortality discrepency for females (negative values indicate earlier death):" << std::endl;
 	std::cin >> femaleMortalityConstant;
+
+	vector<male> malePop(0, male());
+	vector<female> femalePop(0, female());
 	
 	//input error handling
 	if (totalPop < 1) {
-		std::cout << "error 101, invalid population size. exiting program" << endl;
+		std::cout << "error 101, invalid population size. exiting program" << std::endl;
 		return 101;
 	}
 	else if (averageMortalityRate <= 45) {
-		std::cout << "error 102, invalid average mortality. exiting program" << endl;
+		std::cout << "error 102, invalid average mortality. exiting program" << std::endl;
 		return 102;
 	}
 	else if ((ageDistribution == 'p') || (ageDistribution == 'P') || (ageDistribution == 'e') || (ageDistribution == 'E') || (ageDistribution == 'u') || (ageDistribution == 'U')) {
-		std::cout << "error 103, invalid age distribution. exiting program" << endl;
+		std::cout << "error 103, invalid age distribution. exiting program" << std::endl;
 		return 103;
 	}
 

@@ -71,10 +71,10 @@ class female:public human() {
 void makePerson(long long int newId, double newAge, double newFertilityRate) {
 	int sexDecider = rand() % 10;
 	if (sexDecider < 5) {
-		return new female(newId, newAge, newFertilityRate);
+		femalePop.pushback(female(newId, newAge, newFertilityRate));
 	}
 	else {
-		return new male(newId, newAge);
+		malePop.pushback(male(newId, newAge));
 	}
 }
 
