@@ -78,6 +78,28 @@ void makePerson(long long int newId, double newAge, double newFertilityRate) {
 	}
 }
 
-void passYear(int) {
+void passYear(vector<male> &malePop, vector<female> &femalePop) {
 
+	for (int i = 0; i < femalePop.size(); i++) { //new births
+		if (femalePop[i].age < 45) {
+			double likelyhoodOfKid = ((femalePop[i].fertilityfactor / 32) * 100); //yearly average percent chance of having a kid
+			double randomSeed = rand() % 100 + 1;
+			if (randomSeed < likelyHoodOfKid) {
+				int newId = femalePop.size() + malePop.size() + 1;
+				makeperson(newId, 0, femalePop[i].fertilityFactor);
+			}
+		}
+	}
+
+	for (int i = 0; i < femalePop.size(); i++) { //female deaths
+
+	}
+
+	for (int i = 0; i < femalePop.size(); i++) { //male deaths	
+	
+	}
+
+}
+
+void displayOutput (vector<male>& malePop, vector<female>& femalePop) {
 }

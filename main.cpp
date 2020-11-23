@@ -101,7 +101,8 @@ int main() {
 	}
 
 	for (int i = 0; i < yearsToPass; i++) { //run simulated years
-		passYear();  //in future builds will take inputs that reflect trend curves
+		passYear(malePop, femalePop);  // future builds will take inputs that reflect trend curves
+		displayOutput(malePop, femalePop); // future builds will have a graphical output 
 	}
 
 	for () { //deallocate memory for simulated males

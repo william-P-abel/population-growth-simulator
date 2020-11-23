@@ -28,4 +28,6 @@ class female:public human {
 
 void makePerson(long long int, double, double);
 
-void passyear(int);
+void passyear(vector, vector);
+
+void displayOutput(vector, vector);
