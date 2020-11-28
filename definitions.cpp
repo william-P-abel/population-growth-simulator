@@ -78,7 +78,7 @@ void makePerson(long long int newId, double newAge, double newFertilityRate) {
 	}
 }
 
-void passYear(vector<male> &malePop, vector<female> &femalePop) {
+void passYear(vector<male> &malePop, vector<female> &femalePop, maleMortalityAge, femaleMortalityAge) {
 
 	for (int i = 0; i < femalePop.size(); i++) { //new births
 		if (femalePop[i].age < 45) {
@@ -91,12 +91,16 @@ void passYear(vector<male> &malePop, vector<female> &femalePop) {
 		}
 	}
 
-	for (int i = 0; i < femalePop.size(); i++) { //female deaths
-
+	for (int i = 0; i < femalePop.size(); i++) { //female deaths will implement more realistic death disribution logic later
+		if (femalePop[i].age = > femaleMortalityAge) {
+			femalePop.erase(femalePop.begin() + i);
+		}
 	}
 
-	for (int i = 0; i < femalePop.size(); i++) { //male deaths	
-	
+	for (int i = 0; i < malePop.size(); i++) { //male deaths will implement more realistic death disribution logic later	
+		if (malePop[i].age = > maleMortalityAge) {
+			malePop.erase(malePop.begin() + i);
+		}
 	}
 
 }
