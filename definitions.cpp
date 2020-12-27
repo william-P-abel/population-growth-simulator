@@ -92,13 +92,13 @@ void passYear(vector<male> &malePop, vector<female> &femalePop, maleMortalityAge
 	}
 
 	for (int i = 0; i < femalePop.size(); i++) { //female deaths will implement more realistic death disribution logic later
-		if (femalePop[i].age = > femaleMortalityAge) {
+		if (femalePop[i].age >= femaleMortalityAge) {
 			femalePop.erase(femalePop.begin() + i);
 		}
 	}
 
 	for (int i = 0; i < malePop.size(); i++) { //male deaths will implement more realistic death disribution logic later	
-		if (malePop[i].age = > maleMortalityAge) {
+		if (malePop[i].age >= maleMortalityAge) {
 			malePop.erase(malePop.begin() + i);
 		}
 	}
@@ -106,4 +106,7 @@ void passYear(vector<male> &malePop, vector<female> &femalePop, maleMortalityAge
 }
 
 void displayOutput (vector<male>& malePop, vector<female>& femalePop) {
+	std::cout << "total number of people" << femalePop.size() + malePop.size() << endl;
+	std::cout << "total number of males" << malePop.size() << endl;
+	std::cout << "total number of females" << femalePop.size() << endl;
 }

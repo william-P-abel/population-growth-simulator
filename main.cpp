@@ -1,13 +1,14 @@
 #include <iostream>
 #include <stdlib.h>
-#include <definitions.h>
+#include <definitions.cpp>
+#include <prototypes.h>
 
 int main() {
 	int totalPop = 0;
 	int yearsToPass = 0;
 	double averageFertility = 0;
 	char ageDistribution = 'Z';
-	double averageMortalityRate = 0;
+	int averageMortalityRate = 0;
 	double maleMortalityConstant = 0;
 	double femaleMortalityConstant = 0;
 
@@ -105,15 +106,7 @@ int main() {
 
 	for (int i = 0; i < yearsToPass; i++) { //run simulated years
 		passYear(malePop, femalePop, maleMortalityRate, femaleMortalityRate);  // future builds will take inputs that reflect trend curves
-		displayOutput(malePop, femalePop); // future builds will have a graphical output 
-	}
-
-	for () { //deallocate memory for simulated males
-
-	}
-
-	for () { //deallocate memory for simulated females
-
+		displayOutput(malePop, femalePop); // future builds will have a graphical output
 	}
 	return 0;
 }
