@@ -2,73 +2,73 @@
 #include <stdlib.h>
 #include <prototypes.h>
 
-class human() {
+class human {
 	int aliveState;
 	double age;
 	long long int id;
 
-	public:
-		long long int getId() {
-			return id;
-		}
+public:
+	long long int getId() {
+		return id;
+	}
 
-		void setId(long long int inputId) {
-			id = inputId;
-		}
-		
-		double getAge() {
-			return id;
-		}
+	void setId(long long int inputId) {
+		id = inputId;
+	}
 
-		void setage(double inputAge) {
-			age = inputAge;
-		}
+	double getAge() {
+		return id;
+	}
 
-		int getAliveState() {
-			return aliveState;
-		}
+	void setAge(double inputAge) {
+		age = inputAge;
+	}
 
-		void setAliveState(int inputAliveState) {
-			aliveState = inputAliveState;
-		}
-}
+	int getAliveState() {
+		return aliveState;
+	}
 
-class male:public human() {
-
-	public:
-
-		male(long long int inputId, double inputAge) {
-			aliveState = 1;
-			age = inputAge;
-			id = inputId;
-		}
-
-		~male();
-}
-
-class female:public human() {
-	double fertilityFactor;
-
-	public:
-		double getFertilityFactor() {
-			return fertilityFactor;
-		}
-
-		double setFertilityFactor(double inputFertilityFactor) {
-			fertilityFactor = inputFertilityFactor;
-		}
-
-		female(long long int inputId, double inputAge, double inputFertilityFactor) {
-			aliveState = 1;
-			age = inputAge;
-			id = inputId;
-			fertilityFactor = inputFertilityFactor;
-		}
-
-		~female();
+	void setAliveState(int inputAliveState) {
+		aliveState = inputAliveState;
+	}
 };
 
-void makePerson(long long int newId, double newAge, double newFertilityRate) {
+class male :public human {
+
+public:
+
+	male(long long int inputId, double inputAge) {
+		setAliveState(1);
+		setAge(inputAge);
+		setId(inputId);
+	}
+
+	~male();
+};
+
+class female :public human {
+	double fertilityFactor;
+
+public:
+	double getFertilityFactor() {
+		return fertilityFactor;
+	}
+
+	double setFertilityFactor(double inputFertilityFactor) {
+		fertilityFactor = inputFertilityFactor;
+	}
+
+	female(long long int inputId, double inputAge, double inputFertilityFactor) {
+		setAliveState(1);
+		setAge(inputAge);
+		setId(inputId);
+		setFertilityFactor(inputFertilityFactor);
+	}
+
+	~female();
+};
+
+void makePerson(vector<male>& malePop, vector<female>& femalePop, long long int newId, double newAge, double newFertilityRate) {
 	int sexDecider = rand() % 10;
 	if (sexDecider < 5) {
 		femalePop.pushback(female(newId, newAge, newFertilityRate));
@@ -78,7 +78,7 @@ void makePerson(long long int newId, double newAge, double newFertilityRate) {
 	}
 }
 
-void passYear(vector<male> &malePop, vector<female> &femalePop, maleMortalityAge, femaleMortalityAge) {
+void passYear(vector<male>& malePop, vector<female>& femalePop, maleMortalityAge, femaleMortalityAge) {
 
 	for (int i = 0; i < femalePop.size(); i++) { //new births
 		if (femalePop[i].age < 45) {

@@ -100,7 +100,7 @@ int main() {
 		}
 
 		// resolve sex and make person object
-		makePerson(i, newAge, averageFertility);
+		makePerson(malePop, femalePop, i, newAge, averageFertility);
 
 	}
 
