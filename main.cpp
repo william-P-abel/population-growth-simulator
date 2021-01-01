@@ -1,5 +1,6 @@
 #include <iostream>
 #include <stdlib.h>
+#include <vector>
 #include <definitions.cpp>
 #include <prototypes.h>
 
@@ -33,8 +34,8 @@ int main() {
 	double femaleMortalityRate = averageMortalityRate + femaleMortalityConstant;
 
 	//two vectors are used to contain the population becuse male and female objects are diffrent sizes
-	vector<male> malePop(0, male());    
-	vector<female> femalePop(0, female());
+	std::vector<male> malePop;    
+	std::vector<female> femalePop;
 	
 	//input error handling
 	if (totalPop < 1) {

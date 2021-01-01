@@ -1,5 +1,7 @@
 #include <iostream>
+#include <vector>
 #include <stdlib.h>
+
 
 class human {
 	double age;
@@ -12,13 +14,13 @@ public:
 	void setAge(double);
 };
 
-class male :public human {
+class male :protected human {
 public:
 	male(long long int, double);
 	~male();
 };
 
-class female :public human {
+class female :protected human {
 	double fertilityFactor;
 
 public:
@@ -29,8 +31,8 @@ public:
 	~female();
 };
 
-void makePerson(long long int, double, double);
+void makePerson(std::vector, std::vector, long long int, double, double);
 
-void passYear(std::vector<female> &, std::vector<male> &, double, double);
+void passYear(std::vector, std::vector, double, double);
 
 void displayOutput(std::vector, std::vector);

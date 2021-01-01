@@ -1,5 +1,6 @@
 #include <iostream>
 #include <stdlib.h>
+#include <vector>
 #include <prototypes.h>
 
 class human {
@@ -68,21 +69,21 @@ public:
 	~female();
 };
 
-void makePerson(vector<male>& malePop, vector<female>& femalePop, long long int newId, double newAge, double newFertilityRate) {
+void makePerson(std::vector<male>& malePop, std::vector<female>& femalePop, long long int newId, double newAge, double newFertilityRate) {
 	int sexDecider = rand() % 10;
 	if (sexDecider < 5) {
-		femalePop.pushback(female(newId, newAge, newFertilityRate));
+		femalePop.push_back(female(newId, newAge, newFertilityRate));
 	}
 	else {
-		malePop.pushback(male(newId, newAge));
+		malePop.push_back(male(newId, newAge));
 	}
 }
 
-void passYear(vector<male>& malePop, vector<female>& femalePop, maleMortalityAge, femaleMortalityAge) {
+void passYear(std::vector<male>& malePop, std::vector<female>& femalePop, double maleMortalityAge, double femaleMortalityAge) {
 
 	for (int i = 0; i < femalePop.size(); i++) { //new births
-		if (femalePop[i].age < 45) {
-			double likelyhoodOfKid = ((femalePop[i].fertilityfactor / 32) * 100); //yearly average percent chance of having a kid
+		if (femalePop[i].getAge < 45) {
+			double likelyhoodOfKid = ((femalePop[i].getFertilityFactor / 32) * 100); //yearly average percent chance of having a kid
 			double randomSeed = rand() % 100 + 1;
 			if (randomSeed < likelyHoodOfKid) {
 				int newId = femalePop.size() + malePop.size() + 1;
